@@ -21,7 +21,7 @@ export default function SpecialOffers() {
         {/* Title */}
         <h2 className="text-4xl font-bold mb-4">Special Offer</h2>
         <p className="text-lg mb-8 max-w-2xl mx-auto">
-          🎉 Get <span className="font-semibold">20% OFF</span> your first appointment at IFine Beauty Salon. 
+          🎉 Get <span className="font-semibold">20% OFF</span> your first appointment at Touch By IFine Beauty World. 
           Experience elegance, style, and beauty like never before!
         </p>
 
