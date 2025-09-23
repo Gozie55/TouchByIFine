@@ -33,7 +33,7 @@ export default function HeroSection() {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="text-lg sm:text-2xl mb-8 max-w-2xl mx-auto"
         >
-          Redefining elegance with expert care for your hair, nails, and skin.
+          Redefining elegance with expert care for your hair and nails.
         </motion.p>
 
         <motion.div

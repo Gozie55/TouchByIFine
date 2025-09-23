@@ -21,7 +21,7 @@ function App() {
         <Navbar />
 
         {/* Main Sections */}
-        <main>
+        <main className="pt-20">
           <section id="home">
             <Hero />
           </section>

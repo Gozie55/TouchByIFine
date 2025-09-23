@@ -71,7 +71,7 @@ export default function GallerySection() {
         {/* Socials CTA */}
         <div className="text-center mt-16">
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-            See more photos & videos of our work
+            Click our socials to see more photos & videos of our work
           </h3>
           <div className="flex justify-center gap-6">
             <a
