@@ -4,11 +4,15 @@
     "target": "ES2023",
     "lib": ["ES2023"],
     "module": "ESNext",
-    "types": ["node"],                // 👈 Load Node types
+    "types": ["node"],
     "skipLibCheck": true,
 
+    /* Node resolution for Rollup + Vite types */
+    "moduleResolution": "node16",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
     /* Bundler mode */
-    "moduleResolution": "Node",       // 👈 Use Node module resolution
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
