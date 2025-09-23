@@ -49,7 +49,7 @@ export default function ContactSection() {
               <Phone className="text-pink-600 w-6 h-6" />
               <div>
                 <h4 className="font-semibold text-gray-800">Phone</h4>
-                <p className="text-gray-600">+2347030710355</p>
+                <p className="text-gray-600">+2348101900133</p>
               </div>
             </div>
 
