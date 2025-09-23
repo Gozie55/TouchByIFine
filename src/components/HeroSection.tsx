@@ -23,7 +23,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8 }}
           className="text-5xl sm:text-6xl font-bold mb-4"
         >
-          IFine Beauty Salon
+          Touch By IFine Beauty World
         </motion.h1>
 
         <motion.p

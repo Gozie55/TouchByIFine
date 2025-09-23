@@ -14,7 +14,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo / Brand Name */}
         <div className="text-2xl font-bold text-pink-600 tracking-wide">
-          IFine Salon
+          Touch By IFine
         </div>
 
         {/* Desktop Nav */}
@@ -22,20 +22,30 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <li key={link}>
               <a
-                href={`#${link.toLowerCase()}`}
-                className="hover:text-pink-600 transition-colors"
-              >
-                {link}
-              </a>
+                  href="https://wa.me/2348101900133"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="w-full bg-pink-600 text-white hover:bg-pink-700">
+                    Book Now
+                  </Button>
+                </a>
+
             </li>
           ))}
         </ul>
 
         {/* Book Now Button (Desktop) */}
         <div className="hidden md:block">
+          <a
+                  href="https://wa.me/2348101900133"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
           <Button className="bg-pink-600 text-white hover:bg-pink-700">
             Book Now
           </Button>
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -73,9 +83,15 @@ export default function Navbar() {
                 </li>
               ))}
               <li>
+                <a
+                  href="https://wa.me/2348101900133"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                 <Button className="w-full bg-pink-600 text-white hover:bg-pink-700">
                   Book Now
                 </Button>
+                </a>
               </li>
             </ul>
           </motion.div>
