@@ -2,14 +2,18 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const images = [
-  "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1500835556837-99ac94a94552?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1522336572468-97b06e8ef143?auto=format&fit=crop&w=800&q=80",
-];
+ const images = [
+    "/images/galleryHair/image1.jpeg",
+  "/images/galleryHair/image2.jpeg",
+  "/images/galleryHair/image3.jpeg",
+  "/images/galleryHair/image4.jpeg",
+  "/images/galleryHair/image5.jpeg",
+  "/images/galleryHair/image6.jpeg",
+  "/images/galleryHair/image7.jpeg",
+  "/images/galleryHair/image8.jpeg",
+  "/images/galleryHair/image9.jpeg",
+      
+    ];
 
 export default function GallerySection() {
   const [selected, setSelected] = useState<string | null>(null);
@@ -35,7 +39,7 @@ export default function GallerySection() {
         </motion.div>
 
         {/* Grid */}
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-24">
           {images.map((img, i) => (
             <motion.div
               key={i}
@@ -49,7 +53,7 @@ export default function GallerySection() {
               <img
                 src={img}
                 alt={`Gallery ${i + 1}`}
-                className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
+                className="w-full h-120 object-cover hover:scale-110 transition-transform duration-500"
               />
             </motion.div>
           ))}

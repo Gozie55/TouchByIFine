@@ -17,24 +17,16 @@ const values = [
 ];
 
 const team = [
-  {
-    name: "Isabella Grace",
-    role: "Lead Stylist",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=500&q=80",
-  },
-  {
-    name: "Sophia Rose",
-    role: "Nail Artist",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80",
-  },
-  {
-    name: "Olivia Jade",
-    role: "Makeup Specialist",
-    image:
-      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=500&q=80",
-  },
+    {
+      name: "Ifeanyi",
+      role: "Hair Stylist and Nail Technician",
+      images: [
+      "/images/ifeanyi/ifeanyi2.jpeg",
+      "/images/ifeanyi/shop1.jpeg",
+      "/images/ifeanyi/ifeanyi1.jpeg",
+      
+    ],
+  }, 
 ];
 
 export default function AboutSection() {
@@ -51,8 +43,8 @@ export default function AboutSection() {
         >
           <h2 className="text-4xl font-bold mb-4">About Us</h2>
           <p className="max-w-2xl mx-auto text-lg text-gray-600">
-            At <span className="font-semibold">IFine Beauty Salon</span>, we
-            believe beauty is confidence. Our team of experts combines skill,
+            At <span className="font-semibold">Touch By IFine</span>, we
+            believe beauty is confidence. We combine skill,
             creativity, and passion to deliver stunning transformations.
           </p>
         </motion.div>
@@ -77,35 +69,43 @@ export default function AboutSection() {
         </div>
 
         {/* Team Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <h3 className="text-3xl font-bold mb-8">Meet Our Team</h3>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
-            {team.map((member, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.2, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-40 h-40 object-cover rounded-full mx-auto shadow-lg mb-4"
-                />
-                <h4 className="text-xl font-semibold">{member.name}</h4>
-                <p className="text-pink-600">{member.role}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+<motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+  className="text-center"
+>
+  <h3 className="text-3xl font-bold mb-12">Meet The Stylist</h3>
+
+  {team.map((member, i) => (
+    <motion.div
+      key={i}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: i * 0.2, duration: 0.6 }}
+      viewport={{ once: true }}
+      className="mb-12"
+    >
+      {/* Image Grid */}
+      <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-6">
+        {member.images.map((img, idx) => (
+          <img
+            key={idx}
+            src={img}
+            alt={`${member.name} ${idx + 1}`}
+            className="w-full max-w-sm md:max-w-md lg:max-w-lg h-72 md:h-96 lg:h-[28rem] object-cover rounded-2xl shadow-lg"
+          />
+        ))}
+      </div>
+
+      {/* Text */}
+      <h4 className="text-2xl font-semibold">{member.name}</h4>
+      <p className="text-pink-600">{member.role}</p>
+    </motion.div>
+  ))}
+</motion.div>
+
       </div>
     </section>
   );

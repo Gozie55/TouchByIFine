@@ -46,7 +46,7 @@ export default function Footer() {
           {/* Social Icons */}
           <div className="flex gap-4">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/touch_by_ifine?utm_source=qr&igsh=MWI0NzlhejY5eGl1ZQ=="
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full bg-gray-800 hover:bg-pink-600 transition"
@@ -54,7 +54,7 @@ export default function Footer() {
               <Instagram className="w-5 h-5 text-white" />
             </a>
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/share/17B81J8SLc/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full bg-gray-800 hover:bg-pink-600 transition"
@@ -62,7 +62,7 @@ export default function Footer() {
               <Facebook className="w-5 h-5 text-white" />
             </a>
             <a
-              href="https://tiktok.com"
+              href="https://www.tiktok.com/@touch_by_ifine_beautywrd?_t=ZN-8zyJ4I6lsfe&_r=1"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full bg-gray-800 hover:bg-pink-600 transition"

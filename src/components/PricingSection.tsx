@@ -75,9 +75,15 @@ export default function PricingSection() {
                   <li key={idx}>✓ {f}</li>
                 ))}
               </ul>
+              <a
+                 href={`https://wa.me/2348101900133?text=Hi! I’d like to book an appointment at Touch By IFine Beauty World.`}
+              target="_blank"
+              rel="noopener noreferrer"
+                >
               <Button className="bg-pink-600 text-white hover:bg-pink-700 px-6 py-2 rounded-full">
                 Book Now
               </Button>
+              </a>
             </motion.div>
           ))}
         </div>

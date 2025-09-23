@@ -1,6 +1,7 @@
 // src/components/ContactSection.tsx
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, Instagram, Facebook, Music } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Instagram, Facebook } from "lucide-react";
+import { SiTiktok } from "react-icons/si";
 
 export default function ContactSection() {
   return (
@@ -35,7 +36,7 @@ export default function ContactSection() {
               <div>
                 <h4 className="font-semibold text-gray-800">Address</h4>
                 <p className="text-gray-600">
-                  123 Beauty Street, Glamour City, Country
+                  20A, Cemetery Road, Amukoko, Ajeromi-Ifelodun, Lagos.
                 </p>
               </div>
             </div>
@@ -45,7 +46,7 @@ export default function ContactSection() {
               <Phone className="text-pink-600 w-6 h-6" />
               <div>
                 <h4 className="font-semibold text-gray-800">Phone</h4>
-                <p className="text-gray-600">+123 456 7890</p>
+                <p className="text-gray-600">+2347030710355</p>
               </div>
             </div>
 
@@ -54,7 +55,7 @@ export default function ContactSection() {
               <Mail className="text-pink-600 w-6 h-6" />
               <div>
                 <h4 className="font-semibold text-gray-800">Email</h4>
-                <p className="text-gray-600">info@ifinesalon.com</p>
+                <p className="text-gray-600">touchbyifine@gmail.com</p>
               </div>
             </div>
 
@@ -63,8 +64,8 @@ export default function ContactSection() {
               <Clock className="text-pink-600 w-6 h-6" />
               <div>
                 <h4 className="font-semibold text-gray-800">Working Hours</h4>
-                <p className="text-gray-600">Mon - Sat: 9:00 AM - 7:00 PM</p>
-                <p className="text-gray-600">Sunday: Closed</p>
+                <p className="text-gray-600">Mon - Sun: 9:00 AM - 8:00 PM</p>
+                
               </div>
             </div>
 
@@ -92,7 +93,7 @@ export default function ContactSection() {
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-pink-50 hover:bg-pink-100 text-pink-600 transition"
               >
-                <Music className="w-5 h-5" />
+                <SiTiktok className="w-5 h-5" />
               </a>
             </div>
 

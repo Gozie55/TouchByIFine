@@ -40,9 +40,15 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.6, duration: 0.5 }}
         >
+          <a
+                 href={`https://wa.me/2348101900133?text=Hi! I’d like to book an appointment at Touch By IFine Beauty World.`}
+              target="_blank"
+              rel="noopener noreferrer"
+                >
           <Button className="bg-pink-600 text-white text-lg px-8 py-3 rounded-full shadow-lg hover:bg-pink-700 transition">
             Book Now
           </Button>
+          </a>
         </motion.div>
       </div>
     </section>

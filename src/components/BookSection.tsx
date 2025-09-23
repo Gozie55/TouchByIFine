@@ -1,120 +1,140 @@
-// src/components/BookingSection.tsx
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 
-export default function BookingSection() {
+export default function BookingForm() {
   const [formData, setFormData] = useState({
     name: "",
-    date: "",
     service: "",
-    message: "",
+    date: "",
+    details: "",
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    // 👉 Later: hook this to backend or email service
-  };
+  const whatsappNumber = "2348101900133";
+
+      const handleWhatsAppBooking = () => {
+  // Convert date into "30th September, 2025"
+  let formattedDate = formData.date;
+  if (formData.date) {
+    const dateObj = new Date(formData.date);
+    const day = dateObj.getDate();
+    const month = dateObj.toLocaleString("en-US", { month: "long" });
+    const year = dateObj.getFullYear();
+
+    // Add suffix: st, nd, rd, th
+    const suffix =
+      day % 10 === 1 && day !== 11
+        ? "st"
+        : day % 10 === 2 && day !== 12
+        ? "nd"
+        : day % 10 === 3 && day !== 13
+        ? "rd"
+        : "th";
+
+    formattedDate = `${day}${suffix} ${month}, ${year}`;
+  }
+
+  const message = `Hello! I'd like to book an appointment at Touch By IFine Beauty World.
+
+\u{1F464} Name: ${formData.name}
+\u{1F487} Service: ${formData.service}
+\u{1F4C5} Date: ${formattedDate}
+\u{1F4DD} Additional Details: ${formData.details || "N/A"}`;
+
+  const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    message
+  )}`;
+  window.open(url, "_blank");
+};
+
+
 
   return (
-    <section id="booking" className="py-20 bg-pink-50">
-      <div className="container mx-auto px-6 lg:px-20">
-        {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="max-w-lg mx-auto space-y-6 bg-white p-8 rounded-2xl shadow-xl"
+    >
+      <h3 className="text-2xl font-bold text-center text-pink-600">
+        Book Your Appointment
+      </h3>
+
+      {/* Input Fields */}
+      <motion.input
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4 }}
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        value={formData.name}
+        onChange={handleChange}
+        className="border border-gray-300 rounded-lg px-4 py-3 w-full text-gray-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+      />
+
+      <motion.select
+        initial={{ opacity: 0, x: 20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4, delay: 0.1 }}
+        name="service"
+        value={formData.service}
+        onChange={handleChange}
+        className="border border-gray-300 rounded-lg px-4 py-3 w-full text-gray-800 shadow-sm bg-white focus:outline-none focus:ring-2 focus:ring-pink-500"
+      >
+        <option value="">Select Service</option>
+        <option value="Hair Styling">Hair Styling</option>
+        <option value="Nails">Nails</option>
+        <option value="Makeup">Makeup</option>
+      </motion.select>
+
+      <motion.input
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+        type="date"
+        name="date"
+        value={formData.date}
+        onChange={handleChange}
+        className="border border-gray-300 rounded-lg px-4 py-3 w-full text-gray-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+      />
+
+      <motion.textarea
+        initial={{ opacity: 0, x: 20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4, delay: 0.3 }}
+        name="details"
+        placeholder="Additional Details (e.g. preferred time, style requests...)"
+        value={formData.details}
+        onChange={handleChange}
+        rows={4}
+        className="border border-gray-300 rounded-lg px-4 py-3 w-full text-gray-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+      />
+
+      {/* WhatsApp Button */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="flex justify-center"
+      >
+        <Button
+          type="button"
+          onClick={handleWhatsAppBooking}
+          className="bg-green-500 text-white hover:bg-green-600 rounded-full w-full sm:w-auto px-10 py-5 text-lg shadow-md transition-all"
         >
-          <h2 className="text-4xl font-bold mb-4 text-gray-800">
-            Book an Appointment
-          </h2>
-          <p className="max-w-2xl mx-auto text-lg text-gray-600">
-            Schedule your next beauty session with us. Fill out the form below
-            or reach us directly on WhatsApp.
-          </p>
-        </motion.div>
-
-        {/* Form */}
-        <motion.form
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-md space-y-6"
-        >
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-pink-500 outline-none"
-          />
-
-          <input
-            type="date"
-            name="date"
-            value={formData.date}
-            onChange={handleChange}
-            required
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-pink-500 outline-none"
-          />
-
-          <select
-            name="service"
-            value={formData.service}
-            onChange={handleChange}
-            required
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-pink-500 outline-none"
-          >
-            <option value="">Select a Service</option>
-            <option value="haircut">Haircut & Styling</option>
-            <option value="manicure">Manicure & Pedicure</option>
-            <option value="makeup">Makeup Services</option>
-            <option value="facial">Facial Treatments</option>
-            <option value="bridal">Bridal Package</option>
-          </select>
-
-          <textarea
-            name="message"
-            placeholder="Additional Details"
-            value={formData.message}
-            onChange={handleChange}
-            rows={4}
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-pink-500 outline-none"
-          />
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              type="submit"
-              className="bg-pink-600 text-white hover:bg-pink-700 px-8 py-3 rounded-full"
-            >
-              Submit Booking
-            </Button>
-
-            {/* WhatsApp Button */}
-            <a
-              href={`https://wa.me/1234567890?text=Hi! I’d like to book an appointment at IFine Beauty Salon.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full text-center shadow-md"
-            >
-              Book via WhatsApp
-            </a>
-          </div>
-        </motion.form>
-      </div>
-    </section>
+          Book an Appointment
+        </Button>
+      </motion.div>
+    </motion.div>
   );
 }
