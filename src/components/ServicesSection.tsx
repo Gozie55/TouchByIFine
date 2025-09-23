@@ -33,6 +33,12 @@ const services = [
     description: "Complete hair, nails, and makeup package for your big day.",
     price: "From $200",
   },
+  {
+    icon: <Brush className="w-10 h-10 text-pink-600" />,
+    title: "Makeup Services",
+    description: "Flawless looks for weddings, parties, and special events.",
+    price: "From $60",
+  },
 ];
 
 export default function ServicesSection() {

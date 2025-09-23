@@ -1,9 +1,11 @@
 // src/components/GallerySection.tsx
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Instagram, Facebook } from "lucide-react";
+import { SiTiktok } from "react-icons/si";
 
- const images = [
-    "/images/galleryHair/image1.jpeg",
+const images = [
+  "/images/galleryHair/image1.jpeg",
   "/images/galleryHair/image2.jpeg",
   "/images/galleryHair/image3.jpeg",
   "/images/galleryHair/image4.jpeg",
@@ -12,8 +14,17 @@ import { motion } from "framer-motion";
   "/images/galleryHair/image7.jpeg",
   "/images/galleryHair/image8.jpeg",
   "/images/galleryHair/image9.jpeg",
-      
-    ];
+
+  "/images/galleryNails/nail2.jpeg",
+  "/images/galleryNails/nail12.jpeg",
+  "/images/galleryNails/nail4.jpeg",
+  "/images/galleryNails/nail7.jpeg",
+  "/images/galleryNails/nail8.jpeg",
+  "/images/galleryNails/nail5.jpeg",
+  "/images/galleryNails/nail3.jpeg",
+  "/images/galleryNails/nail10.jpeg",
+  "/images/galleryNails/nail11.jpeg",
+];
 
 export default function GallerySection() {
   const [selected, setSelected] = useState<string | null>(null);
@@ -29,9 +40,7 @@ export default function GallerySection() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4 text-gray-800">
-            Our Gallery
-          </h2>
+          <h2 className="text-4xl font-bold mb-4 text-gray-800">Our Gallery</h2>
           <p className="max-w-2xl mx-auto text-lg text-gray-600">
             Explore stunning before-and-after transformations and highlights of
             our beauty services.
@@ -57,6 +66,40 @@ export default function GallerySection() {
               />
             </motion.div>
           ))}
+        </div>
+
+        {/* Socials CTA */}
+        <div className="text-center mt-16">
+          <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+            See more photos & videos of our work
+          </h3>
+          <div className="flex justify-center gap-6">
+            <a
+              href="https://www.tiktok.com/@touch_by_ifine_beautywrd?_t=ZN-8zyJ4I6lsfe&_r=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 rounded-full bg-pink-50 hover:bg-pink-100 text-pink-600 transition"
+            >
+              <SiTiktok className="w-8 h-8" />
+            </a>
+            <a
+              href="https://www.instagram.com/touch_by_ifine?utm_source=qr&igsh=MWI0NzlhejY5eGl1ZQ=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 rounded-full bg-pink-50 hover:bg-pink-100 text-pink-600 transition"
+            >
+              <Instagram className="w-8 h-8" />
+            </a>
+            <a
+              href="https://www.facebook.com/share/17B81J8SLc/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 rounded-full bg-pink-50 hover:bg-pink-100 text-pink-600 transition"
+            >
+              <Facebook className="w-8 h-8" />
+            </a>
+            
+          </div>
         </div>
       </div>
 

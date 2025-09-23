@@ -22,7 +22,7 @@ const team = [
       role: "Hair Stylist and Nail Technician",
       images: [
       "/images/ifeanyi/ifeanyi2.jpeg",
-      "/images/ifeanyi/shop1.jpeg",
+      "/images/ifeanyi/ifeanyi3.jpeg",
       "/images/ifeanyi/ifeanyi1.jpeg",
       
     ],

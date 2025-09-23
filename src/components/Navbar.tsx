@@ -14,33 +14,42 @@ export default function Navbar() {
   const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-md z-50">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <header className="fixed top-0 left-0 w-full bg-white/70 backdrop-blur-xl shadow-md z-50">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+        
         {/* Logo / Brand Name */}
-        <div className="text-2xl font-bold text-pink-600 tracking-wide">
-          Touch By IFine
+        <div className="flex items-center space-x-3">
+          <div className="h-14 w-14 rounded-full bg-gradient-to-br flex items-center justify-center shadow-lg">
+            <img
+              src="images/logo/logo1.png"
+              alt="Touch By IFine Logo"
+              className="h-24 w-24 object-contain"
+            />
+          </div>
+          <span className="text-2xl font-extrabold tracking-wide bg-gradient-to-r from-pink-600 via-rose-500 to-yellow-500 bg-clip-text text-transparent">
+            Touch By IFine
+          </span>
         </div>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex space-x-8 text-gray-700 font-medium">
+        <ul className="hidden md:flex space-x-10 text-gray-700 font-medium tracking-wide">
           {navLinks.map((link) => (
-            <li key={link}>
+            <li key={link} className="relative group">
               <a
                 href={`#${link.toLowerCase()}`}
-                className="hover:text-pink-600 transition-colors"
+                className="transition-colors duration-300 hover:text-pink-600 uppercase text-sm font-semibold"
               >
                 {link}
               </a>
+              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-yellow-400 transition-all duration-300 group-hover:w-full"></span>
             </li>
           ))}
-
-          
         </ul>
 
-        {/* Book Now Button (Visible when nav is collapsed on large screens) */}
+        {/* Book Now Button */}
         <div className="hidden md:block">
           <a href={waLink} target="_blank" rel="noopener noreferrer">
-            <Button className="bg-pink-600 text-white hover:bg-pink-700">
+            <Button className="bg-gradient-to-r from-pink-600 to-rose-500 text-white font-semibold rounded-full px-6 py-2 shadow-md hover:shadow-lg hover:from-pink-700 hover:to-yellow-500 transition-all duration-300">
               Book Now
             </Button>
           </a>
@@ -53,7 +62,7 @@ export default function Navbar() {
             aria-label="Toggle Menu"
             className="text-gray-700 focus:outline-none"
           >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            {isOpen ? <X size={30} /> : <Menu size={30} />}
           </button>
         </div>
       </nav>
@@ -65,15 +74,15 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.25 }}
-            className="md:hidden bg-white shadow-lg"
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-white/95 backdrop-blur-xl shadow-lg"
           >
-            <ul className="flex flex-col space-y-4 py-6 px-4 text-gray-700 font-medium">
+            <ul className="flex flex-col space-y-6 py-8 px-6 text-gray-700 font-medium">
               {navLinks.map((link) => (
                 <li key={link}>
                   <a
                     href={`#${link.toLowerCase()}`}
-                    className="block hover:text-pink-600 transition-colors"
+                    className="block hover:text-pink-600 uppercase text-lg font-semibold transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     {link}
@@ -82,7 +91,7 @@ export default function Navbar() {
               ))}
               <li>
                 <a href={waLink} target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full bg-pink-600 text-white hover:bg-pink-700">
+                  <Button className="w-full bg-gradient-to-r from-pink-600 to-rose-500 text-white rounded-full py-3 text-lg font-semibold shadow-md hover:shadow-lg hover:from-pink-700 hover:to-yellow-500 transition-all duration-300">
                     Book Now
                   </Button>
                 </a>

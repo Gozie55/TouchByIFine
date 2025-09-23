@@ -15,9 +15,12 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4 text-gray-800">Get in Touch</h2>
+          <h2 className="text-4xl font-bold mb-4 text-gray-800">
+            Get in Touch
+          </h2>
           <p className="max-w-2xl mx-auto text-lg text-gray-600">
-            We’d love to hear from you! Visit us, call us, or connect with us on social media.
+            We’d love to hear from you! Visit us, call us, or connect with us on
+            social media.
           </p>
         </motion.div>
 
@@ -65,14 +68,13 @@ export default function ContactSection() {
               <div>
                 <h4 className="font-semibold text-gray-800">Working Hours</h4>
                 <p className="text-gray-600">Mon - Sun: 9:00 AM - 8:00 PM</p>
-                
               </div>
             </div>
 
             {/* Socials */}
             <div className="flex gap-4 mt-6">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/touch_by_ifine?utm_source=qr&igsh=MWI0NzlhejY5eGl1ZQ=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-pink-50 hover:bg-pink-100 text-pink-600 transition"
@@ -80,7 +82,7 @@ export default function ContactSection() {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/17B81J8SLc/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-pink-50 hover:bg-pink-100 text-pink-600 transition"
@@ -88,7 +90,7 @@ export default function ContactSection() {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="https://tiktok.com"
+                href="https://www.tiktok.com/@touch_by_ifine_beautywrd?_t=ZN-8zyJ4I6lsfe&_r=1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-pink-50 hover:bg-pink-100 text-pink-600 transition"
@@ -99,7 +101,7 @@ export default function ContactSection() {
 
             {/* WhatsApp Button */}
             <a
-              href="https://wa.me/1234567890"
+              href="https://wa.me/2348101900133?text=Hi! I’d like to book an appointment at Touch By IFine Beauty World."
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-block bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full shadow-md"
@@ -116,8 +118,7 @@ export default function ContactSection() {
             viewport={{ once: true }}
           >
             <iframe
-              title="Salon Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509084!2d144.95373531531865!3d-37.816279979751634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f1f0f0df%3A0xfb4c1b59d0d9f0e7!2sYour%20Salon%20Address!5e0!3m2!1sen!2s!4v1633028400000!5m2!1sen!2s"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.5924064269066!2d3.322779999999997!3d6.446346000000011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8973c1915271%3A0x2e28798d11cd8195!2s20%20Cemetery%20Rd!5e0!3m2!1sen!2sng!4v1758656121174!5m2!1sen!2sng"
               width="100%"
               height="350"
               style={{ border: 0 }}

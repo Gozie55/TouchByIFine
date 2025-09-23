@@ -6,14 +6,15 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative h-screen flex items-center justify-center bg-cover bg-center"
-      style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=80')",
-      }}
+  className="relative h-screen flex items-center justify-center bg-no-repeat bg-center bg-black"
+  style={{
+  backgroundImage: "url('/images/ifeanyi/shop1.png')",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+}}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0 bg-black/30"></div>
 
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4">
@@ -45,7 +46,7 @@ export default function HeroSection() {
               target="_blank"
               rel="noopener noreferrer"
                 >
-          <Button className="bg-pink-600 text-white text-lg px-8 py-3 rounded-full shadow-lg hover:bg-pink-700 transition">
+          <Button className="bg-white text-pink-600 text-lg px-12 py-6 rounded-full shadow-lg hover:bg-pink-700 hover:text-white  transition">
             Book Now
           </Button>
           </a>
