@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-
 import { Instagram, Facebook } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 

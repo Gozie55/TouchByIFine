@@ -26,9 +26,20 @@ export default function Navbar() {
               className="h-24 w-24 object-contain"
             />
           </div>
-          <span className="text-2xl font-extrabold tracking-wide bg-gradient-to-r from-pink-600 via-rose-500 to-yellow-500 bg-clip-text text-transparent">
-            Touch By IFine
-          </span>
+          <span
+  className="
+    block
+    text-center sm:text-center   /* center on mobile, left from sm+ */
+    text-xl sm:text-xl md:text-2xl lg:text-3xl
+    font-bold
+    tracking-wide
+    bg-gradient-to-r from-pink-600 via-rose-500 to-yellow-500
+    bg-clip-text text-transparent font-serif
+  "
+>
+  Touch By IFine
+</span>
+
         </div>
 
         {/* Desktop Nav */}

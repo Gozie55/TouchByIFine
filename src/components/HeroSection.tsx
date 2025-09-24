@@ -22,7 +22,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-7xl sm:text-6xl font-extrabold mb-12 text-white "
+          className="text-4xl sm:text-6xl font-extrabold mb-12 text-white "
         >
           Touch By IFine Beauty World
         </motion.h1>

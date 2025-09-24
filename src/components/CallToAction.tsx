@@ -1,6 +1,5 @@
 // src/components/CallToAction.tsx
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 
 export default function CallToAction() {
   return (
