@@ -1,43 +1,46 @@
 // src/components/ServicesSection.tsx
 import { motion } from "framer-motion";
-import { Scissors, Sparkles, Brush, Hand, Heart } from "lucide-react";
+// icons
+import { Icon as LucideIcon, Brush, Sparkles, GraduationCap } from "lucide-react";
+import { scissorsHairComb } from "@lucide/lab";
+
+
 
 const services = [
+  // Hair Services
   {
-    icon: <Scissors className="w-10 h-10 text-pink-600" />,
-    title: "Frontal Installation",
-    description: "Perfect frontal installs with natural hairline customization and sleek finish.",
-    price: "From ₦5,000",
+    icon: (
+      <LucideIcon
+        iconNode={scissorsHairComb}
+        className="w-10 h-10 text-pink-600"
+      />
+    ),
+    title: "Hair Services",
+    description:
+      "Wig Installation, Wigging, Revamping, Styling, Skull Cap, Glueless, Stretching, Curling & Colouring, Frontal Installation, Layering",
   },
+
+  // Nail Services
   {
     icon: <Sparkles className="w-10 h-10 text-pink-600" />,
-    title: "Wig Installation",
-    description: "Seamless wig installs with styling for everyday or special occasions.",
-    price: "From ₦5,000",
+    title: "Nail Services",
+    description:
+      "Acrylic Nails, Gel Polish Nails, Press-on Nails, Polygel Nails, Nail Art & Design",
   },
+
+  // Manicure & Pedicure
   {
     icon: <Brush className="w-10 h-10 text-pink-600" />,
-    title: "Braids & Cornrows",
-    description: "Box braids, knotless, cornrows, twists, and protective styles.",
-    price: "From ₦5,000",
-  },
-  {
-    icon: <Hand className="w-10 h-10 text-pink-600" />,
     title: "Manicure & Pedicure",
-    description: "Nail extensions, acrylics, gel polish, and luxury pedicures.",
-    price: "From ₦5,000",
+    description:
+      "Classic Manicure & Pedicure, Spa Pedicure, Gel Pedicure, Exfoliation & Foot Scrub, Cuticle Care, Polish Finish",
   },
+
+  // Training
   {
-    icon: <Sparkles className="w-10 h-10 text-pink-600" />,
-    title: "Nail Art & Design",
-    description: "Custom nail art, Swarovski crystals, ombré, and 3D designs.",
-    price: "From ₦5,000",
-  },
-  {
-    icon: <Heart className="w-10 h-10 text-pink-600" />,
-    title: "Bridal Glam",
-    description: "Complete bridal package — flawless hair styling, nails, and glam.",
-    price: "From ₦50,000",
+    icon: <GraduationCap className="w-10 h-10 text-pink-600" />,
+    title: "Training",
+    description: "Professional training in hair, nail, and beauty services.",
   },
 ];
 
@@ -57,13 +60,13 @@ export default function ServicesSection() {
             Our Services
           </h2>
           <p className="max-w-2xl mx-auto text-lg text-gray-600">
-            Pamper yourself with our wide range of beauty treatments designed
-            to make you feel confident, refreshed, and glowing.
+            Pamper yourself with our wide range of beauty treatments designed to
+            make you feel confident, refreshed, and glowing.
           </p>
         </motion.div>
 
         {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, i) => (
             <motion.div
               key={i}
@@ -78,9 +81,7 @@ export default function ServicesSection() {
                 {service.title}
               </h3>
               <p className="text-gray-600 mb-3">{service.description}</p>
-              {service.price && (
-                <p className="text-pink-600 font-medium">{service.price}</p>
-              )}
+              
             </motion.div>
           ))}
         </div>
