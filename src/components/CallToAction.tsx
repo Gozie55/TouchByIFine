@@ -17,16 +17,11 @@ export default function CallToAction() {
         </h2>
 
         <div className="flex justify-center gap-4 flex-wrap">
-          {/* Book Form Button */}
-          <a href="#booking">
-            <Button className="bg-white text-pink-600 font-semibold px-8 py-3 rounded-full hover:bg-gray-100 shadow-lg transition">
-              Book Now
-            </Button>
-          </a>
+          
 
           {/* WhatsApp Quick Button */}
           <a
-            href="https://wa.me/1234567890?text=Hi! I’d like to book an appointment at IFine Beauty Salon."
+            href="https://wa.me/2348101900133?text=Hi! I’d like to book an appointment at Touch By IFine Beauty World."
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full shadow-md"

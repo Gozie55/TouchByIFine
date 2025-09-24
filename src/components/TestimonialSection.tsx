@@ -4,28 +4,46 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Emily Johnson",
+    name: "Uju",
     review:
-      "Absolutely loved my experience at IFine Beauty Salon! The staff was so kind, and my haircut was flawless.",
+      "IFine really understands hair! The way he styled mine, I didn’t even want to take it down. Everywhere I went, people kept asking where I did it. This place is worth it!",
     rating: 5,
-    image:
-      "https://randomuser.me/api/portraits/women/44.jpg",
+    // image: "https://randomuser.me/api/portraits/women/36.jpg",
   },
   {
-    name: "Sophia Martinez",
+    name: "Jenny",
     review:
-      "The manicure and pedicure were so relaxing. I’ll definitely come back. Highly recommend!",
+      "My nails came out so beautiful, I couldn’t stop looking at them. The design was neat, classy and it lasted longer than I expected. I’ll definitely be coming back.",
+    rating: 5,
+    // image: "https://randomuser.me/api/portraits/women/68.jpg",
+  },
+  {
+    name: "Blessing",
+    review:
+      "Touch By IFine is honestly the best. They took care of my hair gently, no stress at all. The wash, the setting, everything was done with so much care. I felt so relaxed.",
     rating: 4,
-    image:
-      "https://randomuser.me/api/portraits/women/65.jpg",
+    // image: "https://randomuser.me/api/portraits/women/71.jpg",
   },
   {
-    name: "Olivia Smith",
+    name: "Ngozi",
     review:
-      "My bridal makeup was stunning! Everyone complimented me the whole night. Thank you, IFine team!",
+      "I just did my gel nails here and I love the results! My nails are shining like glass. From now on, this is my spot.",
     rating: 5,
-    image:
-      "https://randomuser.me/api/portraits/women/22.jpg",
+    // image: "https://randomuser.me/api/portraits/women/52.jpg",
+  },
+  {
+    name: "Kemi",
+    review:
+      "From the moment I stepped in, I felt at home. They treated me so well, and my braids came out clean and stylish. Even my colleagues noticed the difference immediately.",
+    rating: 5,
+    // image: "https://randomuser.me/api/portraits/women/45.jpg",
+  },
+  {
+    name: "Tosin",
+    review:
+      "Their nail service is top-notch! I wanted something simple but elegant, and they delivered it perfectly. Honestly, IFine pays attention to small details that matter.",
+    rating: 5,
+    // image: "https://randomuser.me/api/portraits/women/63.jpg",
   },
 ];
 
@@ -60,11 +78,11 @@ export default function TestimonialsSection() {
               viewport={{ once: true }}
               className="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-xl transition"
             >
-              <img
+              {/* <img
                 src={t.image}
                 alt={t.name}
                 className="w-20 h-20 rounded-full mx-auto mb-4 object-cover shadow-md"
-              />
+              /> */}
               <p className="text-gray-600 italic mb-4">“{t.review}”</p>
 
               {/* Star rating */}
@@ -73,7 +91,9 @@ export default function TestimonialsSection() {
                   <Star
                     key={idx}
                     className={`w-5 h-5 ${
-                      idx < t.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"
+                      idx < t.rating
+                        ? "text-yellow-400 fill-yellow-400"
+                        : "text-gray-300"
                     }`}
                   />
                 ))}

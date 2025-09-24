@@ -5,13 +5,12 @@ import About from "./components/AboutSection";
 import Services from "./components/ServicesSection";
 import Gallery from "./components/GallerySection";
 import Testimonials from "./components/TestimonialSection";
-import Pricing from "./components/PricingSection";
 import Booking from "./components/BookSection";
 import Contact from "./components/ContactSection";
 import Footer from "./components/Footer";
 import SpecialOffers from "./components/SpecialOffers";
-import Newsletter from "./components/NewsletterSignup";
 import WhatsAppChat from "./components/WhatsAppChatWidget";
+import CallToAction from "@/components/CallToAction";
 
 function App() {
   return (
@@ -30,20 +29,23 @@ function App() {
             <About />
           </section>
 
+          
           <section id="services">
             <Services />
           </section>
+
+          <CallToAction />
+
 
           <section id="gallery">
             <Gallery />
           </section>
 
+          <CallToAction />
+
+
           <section id="testimonials">
             <Testimonials />
-          </section>
-
-          <section id="pricing">
-            <Pricing />
           </section>
 
           <section id="booking">
@@ -57,10 +59,6 @@ function App() {
           {/* Extras */}
           <section id="offers">
             <SpecialOffers />
-          </section>
-
-          <section id="newsletter">
-            <Newsletter />
           </section>
         </main>
 

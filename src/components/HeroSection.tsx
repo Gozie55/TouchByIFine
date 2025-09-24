@@ -6,12 +6,12 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-  className="relative h-screen flex items-center justify-center bg-no-repeat bg-center bg-black"
-  style={{
-  backgroundImage: "url('/images/ifeanyi/shop1.png')",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-}}
+      className="relative h-screen flex items-center justify-center bg-no-repeat bg-center bg-black"
+      style={{
+        backgroundImage: "url('/images/ifeanyi/shop1.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center 30%",
+      }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/30"></div>
@@ -42,13 +42,13 @@ export default function HeroSection() {
           transition={{ delay: 0.6, duration: 0.5 }}
         >
           <a
-                 href={`https://wa.me/2348101900133?text=Hi! I’d like to book an appointment at Touch By IFine Beauty World.`}
-              target="_blank"
-              rel="noopener noreferrer"
-                >
-          <Button className="bg-white text-pink-600 text-lg px-12 py-6 rounded-full shadow-lg hover:bg-pink-700 hover:text-white  transition">
-            Book Now
-          </Button>
+            href={`https://wa.me/2348101900133?text=Hi! I’d like to book an appointment at Touch By IFine Beauty World.`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="bg-white text-pink-600 text-lg px-12 py-6 rounded-full shadow-lg hover:bg-pink-700 hover:text-white  transition">
+              Book Now
+            </Button>
           </a>
         </motion.div>
       </div>

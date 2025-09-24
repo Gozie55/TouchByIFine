@@ -3,30 +3,32 @@ import { motion } from "framer-motion";
 
 const values = [
   {
-    title: "Personalized Care",
-    description: "Every client gets a unique experience tailored to their style.",
+    title: "Tailored Beauty",
+    description:
+      "Every client is different. We listen to you and create styles that truly fit your personality and lifestyle.",
   },
   {
-    title: "Premium Products",
-    description: "We only use high-quality, professional-grade beauty products.",
+    title: "Quality You Can Trust",
+    description:
+      "We use only the best professional products to keep your hair and nails healthy, stylish, and long-lasting.",
   },
   {
-    title: "Relaxing Atmosphere",
-    description: "A soothing space designed to help you unwind and glow.",
+    title: "Calm & Comfort",
+    description:
+      "From the moment you sit down, our space is designed to make you relax, feel pampered, and leave glowing with confidence.",
   },
 ];
 
 const team = [
-    {
-      name: "Ifeanyi",
-      role: "Hair Stylist and Nail Technician",
-      images: [
+  {
+    name: "Ifeanyi",
+    role: "Hair Stylist and Nail Technician",
+    images: [
       "/images/ifeanyi/ifeanyi2.jpeg",
       "/images/ifeanyi/ifeanyi3.jpeg",
       "/images/ifeanyi/ifeanyi1.jpeg",
-      
     ],
-  }, 
+  },
 ];
 
 export default function AboutSection() {
@@ -43,9 +45,13 @@ export default function AboutSection() {
         >
           <h2 className="text-4xl font-bold mb-4">About Us</h2>
           <p className="max-w-2xl mx-auto text-lg text-gray-600">
-            At <span className="font-semibold">Touch By IFine</span>, we
-            believe beauty is confidence. We combine skill,
-            creativity, and passion to deliver stunning transformations.
+            At{" "}
+            <span className="font-semibold text-pink-600">
+              Touch By IFine Beauty World
+            </span>
+            , we know that looking good is feeling good. With skill, creativity,
+            and passion, we bring out the best version of you through beautiful
+            hair styling and nail care.
           </p>
         </motion.div>
 
@@ -60,53 +66,58 @@ export default function AboutSection() {
               viewport={{ once: true }}
               className="p-6 rounded-2xl shadow-md bg-pink-50 hover:shadow-lg transition"
             >
-              <h3 className="text-xl font-semibold mb-2 text-pink-700">
+              <h3 className="text-xl font-semibold mb-2 text-pink-700 text-center">
                 {value.title}
               </h3>
-              <p className="text-gray-600">{value.description}</p>
+              <p className="text-gray-600 text-center">{value.description}</p>
             </motion.div>
           ))}
         </div>
 
+      
+
+
         {/* Team Section */}
-<motion.div
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
-  transition={{ duration: 0.8 }}
-  viewport={{ once: true }}
-  className="text-center"
->
-  <h3 className="text-3xl font-bold mb-12">Meet The Stylist</h3>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <h3 className="text-3xl font-bold mb-12">Meet The Stylist</h3>
 
-  {team.map((member, i) => (
-    <motion.div
-      key={i}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: i * 0.2, duration: 0.6 }}
-      viewport={{ once: true }}
-      className="mb-12"
-    >
-      {/* Image Grid */}
-      <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-6">
-        {member.images.map((img, idx) => (
-          <img
-            key={idx}
-            src={img}
-            alt={`${member.name} ${idx + 1}`}
-            className="w-full max-w-sm md:max-w-md lg:max-w-lg h-72 md:h-96 lg:h-[28rem] object-cover rounded-2xl shadow-lg"
-          />
-        ))}
+          {team.map((member, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.2, duration: 0.6 }}
+              viewport={{ once: true }}
+              className="mb-12"
+            >
+              {/* Image Grid */}
+              <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-6">
+                {member.images.map((img, idx) => (
+                  <img
+                    key={idx}
+                    src={img}
+                    alt={`${member.name} ${idx + 1}`}
+                    className="w-full max-w-sm md:max-w-md lg:max-w-lg h-72 md:h-96 lg:h-[28rem] object-cover rounded-2xl shadow-lg"
+                  />
+                ))}
+              </div>
+
+              {/* Text */}
+              <h4 className="text-2xl font-semibold">{member.name}</h4>
+              <p className="text-pink-600">{member.role}</p>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
 
-      {/* Text */}
-      <h4 className="text-2xl font-semibold">{member.name}</h4>
-      <p className="text-pink-600">{member.role}</p>
-    </motion.div>
-  ))}
-</motion.div>
 
-      </div>
+      
     </section>
   );
 }

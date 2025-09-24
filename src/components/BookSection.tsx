@@ -20,42 +20,40 @@ export default function BookingForm() {
 
   const whatsappNumber = "2348101900133";
 
-      const handleWhatsAppBooking = () => {
-  // Convert date into "30th September, 2025"
-  let formattedDate = formData.date;
-  if (formData.date) {
-    const dateObj = new Date(formData.date);
-    const day = dateObj.getDate();
-    const month = dateObj.toLocaleString("en-US", { month: "long" });
-    const year = dateObj.getFullYear();
+  const handleWhatsAppBooking = () => {
+    // Convert date into "30th September, 2025"
+    let formattedDate = formData.date;
+    if (formData.date) {
+      const dateObj = new Date(formData.date);
+      const day = dateObj.getDate();
+      const month = dateObj.toLocaleString("en-US", { month: "long" });
+      const year = dateObj.getFullYear();
 
-    // Add suffix: st, nd, rd, th
-    const suffix =
-      day % 10 === 1 && day !== 11
-        ? "st"
-        : day % 10 === 2 && day !== 12
-        ? "nd"
-        : day % 10 === 3 && day !== 13
-        ? "rd"
-        : "th";
+      // Add suffix: st, nd, rd, th
+      const suffix =
+        day % 10 === 1 && day !== 11
+          ? "st"
+          : day % 10 === 2 && day !== 12
+          ? "nd"
+          : day % 10 === 3 && day !== 13
+          ? "rd"
+          : "th";
 
-    formattedDate = `${day}${suffix} ${month}, ${year}`;
-  }
+      formattedDate = `${day}${suffix} ${month}, ${year}`;
+    }
 
-  const message = `Hello! I'd like to book an appointment at Touch By IFine Beauty World.
+    const message = `Hello! I'd like to book an appointment at Touch By IFine Beauty World.
 
 \u{1F464} Name: ${formData.name}
 \u{1F487} Service: ${formData.service}
 \u{1F4C5} Date: ${formattedDate}
 \u{1F4DD} Additional Details: ${formData.details || "N/A"}`;
 
-  const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-    message
-  )}`;
-  window.open(url, "_blank");
-};
-
-
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(url, "_blank");
+  };
 
   return (
     <motion.div
@@ -132,7 +130,7 @@ export default function BookingForm() {
           onClick={handleWhatsAppBooking}
           className="bg-green-500 text-white hover:bg-green-600 rounded-full w-full sm:w-auto px-10 py-5 text-lg shadow-md transition-all"
         >
-          Book an Appointment
+          Book Appointment
         </Button>
       </motion.div>
     </motion.div>

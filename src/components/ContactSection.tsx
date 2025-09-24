@@ -34,7 +34,7 @@ export default function ContactSection() {
             className="space-y-6"
           >
             {/* Address */}
-            <div className="flex items-start gap-4">
+            <div className="flex flex-col items-center text-center lg:flex-row lg:items-start lg:text-left gap-4">
               <MapPin className="text-pink-600 w-6 h-6" />
               <div>
                 <h4 className="font-semibold text-gray-800">Address</h4>
@@ -45,7 +45,7 @@ export default function ContactSection() {
             </div>
 
             {/* Phone */}
-            <div className="flex items-start gap-4">
+            <div className="flex flex-col items-center text-center lg:flex-row lg:items-start lg:text-left gap-4">
               <Phone className="text-pink-600 w-6 h-6" />
               <div>
                 <h4 className="font-semibold text-gray-800">Phone</h4>
@@ -54,7 +54,7 @@ export default function ContactSection() {
             </div>
 
             {/* Email */}
-            <div className="flex items-start gap-4">
+            <div className="flex flex-col items-center text-center lg:flex-row lg:items-start lg:text-left gap-4">
               <Mail className="text-pink-600 w-6 h-6" />
               <div>
                 <h4 className="font-semibold text-gray-800">Email</h4>
@@ -63,7 +63,7 @@ export default function ContactSection() {
             </div>
 
             {/* Working Hours */}
-            <div className="flex items-start gap-4">
+            <div className="flex flex-col items-center text-center lg:flex-row lg:items-start lg:text-left gap-4">
               <Clock className="text-pink-600 w-6 h-6" />
               <div>
                 <h4 className="font-semibold text-gray-800">Working Hours</h4>
@@ -72,7 +72,7 @@ export default function ContactSection() {
             </div>
 
             {/* Socials */}
-            <div className="flex gap-4 mt-6">
+            <div className="flex justify-center lg:justify-start gap-4 mt-6 ">
               <a
                 href="https://www.instagram.com/touch_by_ifine?utm_source=qr&igsh=MWI0NzlhejY5eGl1ZQ=="
                 target="_blank"
@@ -100,14 +100,16 @@ export default function ContactSection() {
             </div>
 
             {/* WhatsApp Button */}
-            <a
-              href="https://wa.me/2348101900133?text=Hi! I’d like to book an appointment at Touch By IFine Beauty World."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-block bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full shadow-md"
-            >
-              Chat on WhatsApp
-            </a>
+            <div className="flex justify-center lg:justify-start">
+              <a
+                href="https://wa.me/2348101900133?text=Hi! I’d like to book an appointment at Touch By IFine Beauty World."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-block bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full shadow-md"
+              >
+                Chat on WhatsApp
+              </a>
+            </div>
           </motion.div>
 
           {/* Map */}

@@ -5,39 +5,39 @@ import { Scissors, Sparkles, Brush, Hand, Heart } from "lucide-react";
 const services = [
   {
     icon: <Scissors className="w-10 h-10 text-pink-600" />,
-    title: "Haircut & Styling",
-    description: "Professional cuts, blow-drys, and styling for every occasion.",
-    price: "From $40",
+    title: "Frontal Installation",
+    description: "Perfect frontal installs with natural hairline customization and sleek finish.",
+    price: "From ₦18,000",
+  },
+  {
+    icon: <Sparkles className="w-10 h-10 text-pink-600" />,
+    title: "Wig Installation",
+    description: "Seamless wig installs with styling for everyday or special occasions.",
+    price: "From ₦20,000",
+  },
+  {
+    icon: <Brush className="w-10 h-10 text-pink-600" />,
+    title: "Braids & Cornrows",
+    description: "Box braids, knotless, cornrows, twists, and protective styles.",
+    price: "From ₦25,000",
   },
   {
     icon: <Hand className="w-10 h-10 text-pink-600" />,
     title: "Manicure & Pedicure",
-    description: "Relaxing nail care with premium polish and treatments.",
-    price: "From $25",
-  },
-  {
-    icon: <Brush className="w-10 h-10 text-pink-600" />,
-    title: "Makeup Services",
-    description: "Flawless looks for weddings, parties, and special events.",
-    price: "From $60",
+    description: "Nail extensions, acrylics, gel polish, and luxury pedicures.",
+    price: "From ₦10,000",
   },
   {
     icon: <Sparkles className="w-10 h-10 text-pink-600" />,
-    title: "Facial Treatments",
-    description: "Revitalize your skin with our range of soothing facials.",
-    price: "From $50",
+    title: "Nail Art & Design",
+    description: "Custom nail art, Swarovski crystals, ombré, and 3D designs.",
+    price: "From ₦12,000",
   },
   {
     icon: <Heart className="w-10 h-10 text-pink-600" />,
-    title: "Bridal Packages",
-    description: "Complete hair, nails, and makeup package for your big day.",
-    price: "From $200",
-  },
-  {
-    icon: <Brush className="w-10 h-10 text-pink-600" />,
-    title: "Makeup Services",
-    description: "Flawless looks for weddings, parties, and special events.",
-    price: "From $60",
+    title: "Bridal Glam",
+    description: "Complete bridal package — flawless hair styling, nails, and glam.",
+    price: "From ₦150,000",
   },
 ];
 
