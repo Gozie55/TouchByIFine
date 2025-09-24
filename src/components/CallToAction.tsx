@@ -12,7 +12,7 @@ export default function CallToAction() {
         viewport={{ once: true }}
         className="container mx-auto px-6 lg:px-20 text-center"
       >
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 font-story">
           Ready to Shine? Book Your Appointment Today!
         </h2>
 

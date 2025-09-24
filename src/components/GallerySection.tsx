@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+
 import { Instagram, Facebook } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 
-// Data
 const hairImages = [
   "/images/galleryHair/image1.jpeg",
   "/images/galleryHair/image2.jpeg",
@@ -92,7 +92,6 @@ const nailVideos = [
   "/videos/nailVideos/video4.mp4",
 ];
 
-// Tab structure
 const tabs = [
   { label: "Hair Photos", items: hairImages, type: "image" },
   { label: "Nail Photos", items: nailImages, type: "image" },
@@ -104,6 +103,17 @@ export default function GallerySection() {
   const [activeTab, setActiveTab] = useState(0);
   const [expanded, setExpanded] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  // height of the tabs bar (used to render a placeholder when we fix the tabs)
+  const [tabsHeight, setTabsHeight] = useState(0);
+
+  // computed top offset so fixed tabs sit below actual navbar/header
+  const [navOffset, setNavOffset] = useState(80); // fallback to 80px
+
+  const [inView, setInView] = useState(false); // track if gallery section is visible
+
+  const tabsRef = useRef<HTMLDivElement | null>(null);
+  const galleryRef = useRef<HTMLDivElement | null>(null);
 
   const currentTab = tabs[activeTab];
   const displayedItems = expanded
@@ -125,7 +135,7 @@ export default function GallerySection() {
     );
   }, [selectedIndex, currentTab.items.length]);
 
-  // Keyboard navigation
+  // Keyboard navigation for lightbox
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (selectedIndex === null) return;
@@ -136,6 +146,69 @@ export default function GallerySection() {
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, [selectedIndex, showNext, showPrev]);
+
+  // compute navbar height offset on mount and resize
+  useEffect(() => {
+    const computeNavOffset = () => {
+      const navEl =
+        document.querySelector("header, nav, .navbar, #navbar") ||
+        document.querySelector("header#header, nav#nav");
+      const height = navEl
+        ? (navEl as HTMLElement).getBoundingClientRect().height
+        : 80;
+      setNavOffset(Math.round(height + 0));
+    };
+
+    computeNavOffset();
+    window.addEventListener("resize", computeNavOffset);
+    return () => window.removeEventListener("resize", computeNavOffset);
+  }, []);
+
+  // update tabsHeight whenever the tabs element exists, expanded changes or on resize
+  useEffect(() => {
+    const updateHeight = () => {
+      if (tabsRef.current) {
+        setTabsHeight(tabsRef.current.offsetHeight);
+      }
+    };
+    updateHeight();
+    const t = setTimeout(updateHeight, 50);
+
+    window.addEventListener("resize", updateHeight);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("resize", updateHeight);
+    };
+  }, [expanded]);
+
+  // IntersectionObserver to track if gallery section is in view (desktop + mobile)
+  useEffect(() => {
+    if (!galleryRef.current) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setInView(entry.isIntersecting);
+        });
+      },
+      {
+        root: null,
+        threshold: 0,
+        rootMargin: "-20% 0px -20% 0px", // fixes mobile: triggers when section is reasonably in view
+      }
+    );
+    observer.observe(galleryRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // helper to scroll the gallery top (used when switching tabs / collapsing)
+  const scrollToGalleryTop = () => {
+    if (galleryRef.current) {
+      galleryRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  // NEW LOGIC: tabs only fixed when expanded AND gallery is in view
+  const shouldFixTabs = expanded && inView;
 
   const renderGrid = () => (
     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-12">
@@ -173,15 +246,6 @@ export default function GallerySection() {
     </div>
   );
 
-  // Create a ref for the gallery section
-  const galleryRef = useRef<HTMLDivElement | null>(null);
-
-  const scrollToGalleryTop = () => {
-    if (galleryRef.current) {
-      galleryRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
   return (
     <section id="gallery" ref={galleryRef} className="py-20 bg-white">
       <div className="container mx-auto px-6 lg:px-20">
@@ -200,32 +264,81 @@ export default function GallerySection() {
           </p>
         </motion.div>
 
+        {/* Placeholder for fixed tabs */}
+        {shouldFixTabs && <div style={{ height: tabsHeight }} aria-hidden />}
+
         {/* Tabs */}
-        <div
-          className={`flex justify-center mb-8 flex-wrap gap-4 transition-all duration-300 ${
-            expanded
-              ? "sticky top-20 z-40 bg-white shadow-md py-3" // stick under navbar with margin
-              : ""
-          }`}
-        >
-          {tabs.map((tab, idx) => (
-            <button
-              key={idx}
-              onClick={() => {
-                setActiveTab(idx);
-                setExpanded(false); // collapse back
-                scrollToGalleryTop(); // scroll to top of gallery
+        {/* Tabs with animation */}
+        <AnimatePresence mode="wait">
+          {shouldFixTabs ? (
+            <motion.div
+              key="sticky-tabs"
+              ref={tabsRef}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="bg-white shadow-md"
+              style={{
+                position: "fixed",
+                top: `${navOffset}px`,
+                left: 0,
+                right: 0,
+                zIndex: 40,
               }}
-              className={`px-4 py-2 rounded-full font-medium transition ${
-                activeTab === idx
-                  ? "bg-pink-600 text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
             >
-              {tab.label}
-            </button>
-          ))}
-        </div>
+              <div className="container mx-auto px-6 lg:px-20 flex justify-center flex-wrap gap-4 py-3">
+                {tabs.map((tab, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => {
+                      setActiveTab(idx);
+                      setExpanded(false);
+                      scrollToGalleryTop();
+                    }}
+                    className={`px-4 py-2 rounded-full font-medium transition ${
+                      activeTab === idx
+                        ? "bg-pink-600 text-white"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="inline-tabs"
+              ref={tabsRef}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="mb-8"
+            >
+              <div className="container mx-auto px-6 lg:px-20 flex justify-center flex-wrap gap-4">
+                {tabs.map((tab, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => {
+                      setActiveTab(idx);
+                      setExpanded(false);
+                      scrollToGalleryTop();
+                    }}
+                    className={`px-4 py-2 rounded-full font-medium transition ${
+                      activeTab === idx
+                        ? "bg-pink-600 text-white"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Gallery Grid */}
         {renderGrid()}
@@ -238,7 +351,6 @@ export default function GallerySection() {
                 setExpanded((prev) => {
                   const newState = !prev;
                   if (prev) {
-                    // If collapsing (Show Less), scroll to gallery top
                     scrollToGalleryTop();
                   }
                   return newState;
@@ -295,7 +407,6 @@ export default function GallerySection() {
             className="relative flex items-center justify-center w-full h-full"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Prev */}
             <button
               onClick={showPrev}
               className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full"
@@ -303,7 +414,6 @@ export default function GallerySection() {
               ◀
             </button>
 
-            {/* Media */}
             {currentTab.type === "video" ? (
               <motion.video
                 src={currentTab.items[selectedIndex]}
@@ -323,7 +433,6 @@ export default function GallerySection() {
               />
             )}
 
-            {/* Next */}
             <button
               onClick={showNext}
               className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full"
@@ -331,7 +440,6 @@ export default function GallerySection() {
               ▶
             </button>
 
-            {/* Close */}
             <button
               onClick={closeLightbox}
               className="absolute top-4 right-4 text-white bg-black/40 hover:bg-black/60 p-2 rounded-full"
