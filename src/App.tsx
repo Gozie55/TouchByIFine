@@ -15,12 +15,12 @@ import CallToAction from "@/components/CallToAction";
 function App() {
   return (
     <Router>
-      <div className="font-sans text-gray-900">
+      <div className="font-sans text-gray-900 overflow-x-hidden">
         {/* Navbar */}
         <Navbar />
 
         {/* Main Sections */}
-        <main className="pt-20">
+        <main>
           <section id="home">
             <Hero />
           </section>
