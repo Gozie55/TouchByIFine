@@ -7,6 +7,11 @@ module.exports = {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+        story: ["'Story Script'", "cursive"],
+        montserrat: ["Montserrat", "sans-serif"],
+        dmsans: ["DM Sans", "sans-serif"],
+      },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',

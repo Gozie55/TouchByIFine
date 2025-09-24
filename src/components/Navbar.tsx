@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const navLinks = ["Home", "About", "Services", "Gallery", "Pricing", "Contact"];
+const navLinks = ["Home", "About", "Services", "Gallery", "Contact"];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +15,7 @@ export default function Navbar() {
   const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white/70 backdrop-blur-xl shadow-md z-50">
+    <header className="fixed top-0 left-0 w-full bg-white backdrop-blur-xl shadow-md z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
         {/* Logo / Brand Name */}
         <div className="flex items-center space-x-3">

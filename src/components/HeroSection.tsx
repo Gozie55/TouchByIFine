@@ -22,7 +22,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl sm:text-6xl font-bold mb-4"
+          className="text-7xl sm:text-6xl font-extrabold mb-12 text-white "
         >
           Touch By IFine Beauty World
         </motion.h1>
@@ -31,7 +31,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-lg sm:text-2xl mb-8 max-w-2xl mx-auto"
+          className="text-lg sm:text-2xl mb-12 max-w-2xl mx-auto text-white  font-story font-light"
         >
           Redefining elegance with expert care for your hair and nails.
         </motion.p>
@@ -46,7 +46,7 @@ export default function HeroSection() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button className="bg-white text-pink-600 text-lg px-12 py-6 rounded-full shadow-lg hover:bg-pink-700 hover:text-white  transition">
+            <Button className="bg-white text-pink-600 text-lg px-12 py-6 rounded-full shadow-lg hover:bg-pink-700 hover:text-white  transition font-bold">
               Book Now
             </Button>
           </a>
